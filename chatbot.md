@@ -1,45 +1,21 @@
-# Basic Chatbot 
+def chatbot_response(user_input):
+    user_input = user_input.lower()  # normalize input
+    if user_input == "hello":
+        return "Hi!"
+    elif user_input == "how are you":
+        return "I'm fine, thanks!"
+    elif user_input == "bye":
+        return "Goodbye!"
+    else:
+        return "Sorry, I don't understand that."
 
-## Overview
-This project is a **simple rule-based chatbot** built using Python.  
-It demonstrates the use of **if-elif statements, functions, loops, and input/output** to simulate basic conversation with predefined responses.
+def run_chatbot():
+    print("Chatbot is running... (type 'bye' to exit)")
+    while True:
+        user_input = input("You: ")
+        response = chatbot_response(user_input)
+        print("Bot:", response)
+        if user_input.lower() == "bye":
+            break
 
-## Features
-- Responds to greetings like `"hello"`, `"hi"`, `"hey"`.
-- Handles small talk such as `"how are you"`.
-- Ends the chat politely when the user says `"bye"`, `"goodbye"`, or `"see you"`.
-- Provides a default reply for unknown inputs.
-
-## Key Concepts Used
-- **Functions**: Encapsulate chatbot logic (`chatbot_response()`).
-- **Conditional statements (if-elif)**: Match user input to predefined replies.
-- **Loops**: Keep the chatbot running until the user exits.
-- **Input/Output**: Interactive conversation with the user.
-
-## How to Run
-1. Save the Python script as `chatbot.py`.
-2. Run the program:
-   ```bash
-   python chatbot.py
-   ```
-3. Type your messages and interact with the chatbot.
-4. Exit by typing `"bye"` or `"goodbye"`.
-
-## Example Interaction
-```
-Chatbot is running... (type 'bye' to exit)
-You: hello
-Bot: Hi there!
-You: how are you
-Bot: I'm fine, thanks!
-You: see you later
-Bot: Goodbye!
-```
-
-## Future Improvements
-- Add support for **more small talk** (e.g., “What’s your name?”, “What can you do?”).
-- Use **regular expressions** for smarter keyword matching.
-- Implement **pattern-based responses** for flexible conversation.
-- Integrate **Natural Language Processing (NLP)** libraries like NLTK or spaCy for advanced understanding.
-- Connect to **external APIs** (e.g., weather, jokes, news) for dynamic replies.
-- Build a **GUI version** using Tkinter or PyQt for a more user-friendly interface.
+run_chatbot()
